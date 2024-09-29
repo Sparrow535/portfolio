@@ -1,0 +1,150 @@
+::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar */
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: inter;
+  width: 100%;
+  margin: 0;
+  height: 100%;
+}
+nav {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+.nav {
+  width: 100%;
+  display: flex;
+  height: 70px;
+  justify-content: space-between;
+}
+.nav .left {
+  font-weight: bold;
+  font-size: 24px;
+  margin-left: 4%;
+  justify-content: start;
+  align-items: center;
+  gap: 25px;
+  display: flex;
+}
+.nav .left img {
+  width: 42px;
+  aspect-ratio: 1/1;
+}
+.navbar {
+  font-weight: 400;
+  font-size: 16px;
+  margin-right: 4%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 25px;
+}
+
+.navbar a {
+  font-size: 16px;
+  color: #023047;
+  text-align: center;
+  text-decoration: none;
+}
+
+.dropdown {
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-weight: 400;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: #023047;
+  background-color: inherit;
+  margin: 0;
+}
+.chevron {
+  position: relative;
+  display: block;
+  height: 20px; /*height should be double border*/
+}
+.navbar a:hover,
+.dropdown:hover .dropbtn {
+  color: #ffb703;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+hr {
+  width: 100%;
+  margin-inline: 0 auto;
+  background-color: #ffb703;
+  height: 2.5px;
+  border: none;
+}
+
+footer {
+  width: 100%;
+  height: 250px;
+  background-color: #023047;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-block: 20px;
+}
+
+footer .first {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .first img {
+  width: 120px;
+  aspect-ratio: 1/1;
+}
+footer .first .connect {
+  text-align: start;
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .second {
+  width: 90%;
+  text-align: start;
+}
+
+footer .second .websiteName {
+  font-size: 18px;
+}
