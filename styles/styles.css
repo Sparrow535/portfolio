@@ -1,6 +1,7 @@
 /* Homepage */
 .homepageContent {
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -31,6 +32,7 @@
 .slideAndContent {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   gap: 5px;
   padding-inline: 10%;
 }
@@ -124,7 +126,7 @@ input[type="number"]::-webkit-inner-spin-button {
   align-items: center;
 }
 .contactForm h1 {
-  font-size: 24px;
+  font-size: 36px;
   font-weight: bold;
 }
 .contactForm h4 {
@@ -234,15 +236,16 @@ textarea {
   width: 100%;
   flex: 1;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 .contentProjects .cards {
-  width: 80%;
-  margin-inline: 10px;
+  width: 55%;
+  background: #f2f2f2;
+  margin-block: 10px;
   padding-inline: 45px;
-  border: 2px solid #8ecae6;
-  border-radius: 15px;
+  border-radius: 10px;
   min-height: 750px;
   display: flex;
   flex-direction: column;
@@ -274,4 +277,189 @@ textarea {
 .projectPic img {
   width: 100%;
   aspect-ratio: 7/4;
+}
+
+/* Skills page */
+.contentSkills {
+  margin: 0 auto;
+  width: 60%;
+  margin-bottom: 50px;
+  padding: 5%;
+}
+.contentSkills .title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.contentSkills > .text {
+  width: 70%;
+  margin: 1.5rem auto;
+  text-align: center;
+  font-size: 18px;
+}
+.contentSkills .row {
+  margin: 1rem 0;
+}
+.contentSkills .item {
+  padding: 0.5rem 0;
+  margin: 0.3rem 0;
+}
+.contentSkills .item-text {
+  display: flex;
+  justify-content: flex-start;
+  font-weight: 600;
+  font-size: 1.3rem;
+  position: relative;
+}
+.contentSkills .item-text span:last-child {
+  position: absolute;
+}
+.contentSkills .item-text .w-90 {
+  margin-left: 85%;
+}
+.contentSkills .item-text .w-75 {
+  margin-left: 70%;
+}
+.contentSkills .item-text .w-85 {
+  margin-left: 80%;
+}
+.contentSkills .item-text .w-80 {
+  margin-left: 75%;
+}
+.contentSkills .item-text .w-60 {
+  margin-left: 55%;
+}
+.contentSkills .item-text .w-68 {
+  margin-left: 63%;
+}
+.progress {
+  margin: 0.8rem 0;
+  border-radius: 10px;
+  height: 24px;
+  width: 100%;
+  background-color: #6a6a6a;
+  overflow: hidden;
+}
+.progress-bar {
+  background: #023047;
+  height: 100%;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.progress-bar.w-90 {
+  width: 90%;
+}
+.progress-bar.w-75 {
+  width: 75%;
+}
+.progress-bar.w-85 {
+  width: 85%;
+}
+.progress-bar.w-80 {
+  width: 80%;
+}
+.progress-bar.w-60 {
+  width: 60%;
+}
+.progress-bar.w-68 {
+  width: 68%;
+}
+
+/* blog page */
+.contentBlog {
+  margin: 0 auto;
+  width: 60%;
+  margin-bottom: 50px;
+  padding: 5%;
+}
+
+.contentBlog .title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.contentBlog > .text {
+  width: 70%;
+  margin: 1.5rem auto;
+  font-size: 18px;
+  text-align: center;
+}
+.contentBlog .item {
+  margin: 1rem 0;
+  background: #f2f2f2;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.contentBlog .item .item-img {
+  border-bottom: 8px solid #023047;
+  overflow: hidden;
+}
+.contentBlog .item .item-img img {
+  width: 100%;
+  transition: all 0.4s ease;
+}
+.contentBlog .item .item-img:hover img {
+  transform: scale(1.2);
+}
+.contentBlog .item .item-content {
+  padding: 1.5rem;
+}
+.contentBlog .item .item-content span {
+  color: #023047;
+  text-transform: uppercase;
+}
+.contentBlog .item .item-content span .fas {
+  font-size: 0.85rem;
+}
+.contentBlog .item .item-content h2 {
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+.contentBlog .pagination {
+  margin: 3rem 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contentBlog .page-link {
+  background: #023047;
+  display: block;
+  color: white;
+  width: 50px;
+  height: 50px;
+  margin: 0 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-weight: 700;
+  transition: all 0.4s ease;
+}
+
+.contentBlog .page-link:nth-child(2) {
+  background: #ffb703;
+}
+.contentBlog .page-link:hover {
+  background: #8ecae6;
+}
+
+.contentBlog .btn {
+  border: none;
+  color: white;
+  margin: 1rem 0;
+  border-radius: 35px;
+  background: #023047;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  padding: 1rem 1.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+.contentBlog .btn:hover {
+  opacity: 0.7;
 }
