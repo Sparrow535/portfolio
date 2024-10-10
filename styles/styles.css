@@ -467,9 +467,141 @@ textarea {
 /* journal page */
 .contentJournal {
   margin: 0 auto;
-  width: 60%;
+  width: 70%;
   margin-bottom: 50px;
   padding: 5%;
+}
+
+.contentJournal .book {
+  position: relative;
+  left: 45%;
+  width: 100%;
+  --book-height: 100vh;
+  --book-ratio: 1.4;
+}
+
+.contentJournal .book > div {
+  height: var(--book-height);
+  width: calc(var(--book-height) / var(--book-ratio));
+  overflow: auto;
+  background-color: #0a0a0a;
+  transform: scale(0.9);
+  border-radius: 6px;
+  transform-origin: left;
+}
+
+.contentJournal .book-cover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 9;
+  text-align: center;
+  background: linear-gradient(135deg, black 25%, transparent 25%) -50px 0,
+    linear-gradient(225deg, black 25%, transparent 25%) -50px 0,
+    linear-gradient(315deg, black 25%, transparent 25%),
+    linear-gradient(45deg, black 25%, transparent 25%);
+  background-size: 2em 2em;
+  background-color: #232323;
+  color: white;
+  transition: transform 2s;
+}
+
+.contentJournal .book-cover::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  right: 20px;
+  top: 0;
+  bottom: 0;
+  background-color: #b11509;
+}
+
+.contentJournal h1 {
+  font-size: 86px;
+  font-weight: 300;
+  color: #ffb703;
+}
+
+.contentJournal h2 {
+  font-size: 16px;
+}
+.contentJournal h5 {
+  font-style: italic;
+  font-weight: 200;
+  font-size: 16px;
+}
+
+.contentJournal .separator {
+  --separator-size: 8px;
+  width: var(--separator-size);
+  height: var(--separator-size);
+  background-color: #023047;
+  margin: 50px auto 60px auto;
+  border-radius: 50%;
+  position: relative;
+}
+
+.contentJournal .separator::after,
+.contentJournal .separator::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  background-color: white;
+  height: 2px;
+  top: calc(50% - 1px);
+}
+
+.contentJournal .separator::after {
+  left: 15px;
+}
+
+.contentJournal .separator::before {
+  right: 15px;
+}
+
+.contentJournal .book-content {
+  transform: scale(0.9) translateY(30px);
+  background-color: white !important;
+  border: 1px solid rgb(179, 179, 179);
+  transition: all 0.3s 1s;
+}
+
+.contentJournal .book-content h2,
+.contentJournal .book-content p {
+  opacity: 1;
+  transition: all 0.3s 0.3s;
+}
+
+.contentJournal h2 {
+  padding: 30px;
+}
+
+.contentJournal p {
+  padding: 0px 30px 10px 30px;
+  text-align: justify;
+  font-size: 14px;
+}
+
+.contentJournal .book-cover > div {
+  transition: opacity 0s 0.6s;
+}
+
+.contentJournal .book:hover > .book-cover {
+  transform: rotateY(180deg) scale(0.9);
+}
+
+.contentJournal .book:hover > .book-cover > div {
+  opacity: 0;
+}
+
+.contentJournal .book:hover > .book-content {
+  transform: scale(0.9) translateY(0px);
+}
+
+.contentJournal .book:hover > .book-content h3,
+.contentJournal .book:hover > .book-content p {
+  opacity: 1;
 }
 
 /* biography page */
@@ -773,19 +905,24 @@ textarea {
 /* hobbies page */
 .contentHobbies {
   margin: 0 auto;
-  width: 80%;
+  width: 90%;
   padding: 5%;
+}
+
+.contentHobbies h2 {
+  font-size: 36px;
+  text-align: center;
 }
 
 .contentHobbies .grid {
   width: 100%;
-  height: 90vw;
+  height: 110vw;
   position: relative;
   display: grid;
   grid-template-columns: 1.167fr 0.45fr 0.225fr 0.3fr 0.8fr;
   grid-template-rows: 0.44fr 0.1875fr 0.4fr 0.9fr;
   grid-gap: 1.5vw;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .contentHobbies .grid figure {
@@ -863,6 +1000,40 @@ textarea {
   grid-row: 2 / 4;
 }
 
+.grid figure:nth-child(7) {
+  grid-column: 1 / 2;
+  grid-row: 4 / 5;
+}
+
+.grid figure:nth-child(8) {
+  grid-column: 2 / 3;
+  grid-row: 4 / 5;
+  clip-path: polygon(0 0, 100% 0, 88% 100%, 0% 100%);
+  /*width: 115%;*/
+  width: calc(100% + 2vw);
+}
+.grid figure:nth-child(8) img {
+  clip-path: polygon(
+    0.24vw 0.24vw,
+    calc(100% - 0.24vw) 0.24vw,
+    calc(88% - 0.24vw) calc(100% - 0.24vw),
+    0.24vw calc(100% - 0.24vw)
+  );
+}
+
+.grid figure:nth-child(9) {
+  grid-column: 3 / 5;
+  grid-row: 4 / 5;
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+}
+.grid figure:nth-child(9) img {
+  clip-path: polygon(
+    calc(12% + 0.24vw) 0.24vw,
+    calc(100% - 0.24vw) 0.24vw,
+    calc(100% - 0.24vw) calc(100% - 0.24vw),
+    0.24vw calc(100% - 0.24vw)
+  );
+}
 .contentHobbies .grid figcaption {
   position: absolute;
   bottom: 0;
@@ -1079,7 +1250,6 @@ figcaption > div div {
   margin: 0 auto;
   width: 70%;
   margin-bottom: 50px;
-  padding-top: 200px !important;
   padding: 5%;
 }
 
@@ -1116,7 +1286,7 @@ figcaption > div div {
   position: sticky;
   top: 0;
   text-align: center;
-  height: calc(10vw + 20px);
+  height: calc(10vw + 10px);
   transition: all 0.2s ease-in;
 }
 
@@ -1137,4 +1307,295 @@ figcaption > div div {
 .contentCareer .episode__content .story {
   font-size: 16px;
   line-height: 26px;
+}
+
+/* travels page */
+.contentTravels {
+  margin: 0 auto;
+  width: 70%;
+  margin-bottom: 50px;
+  padding: 5%;
+  display: grid;
+  place-content: center;
+}
+
+.contentTravels h2 {
+  font-size: 36px;
+  text-align: center;
+}
+
+.contentTravels .gallery {
+  width: 100%;
+  --s: 170px;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 5px;
+  position: relative;
+}
+.contentTravels .gallery input {
+  position: absolute;
+  border: 2px solid #000;
+  border-radius: 50%;
+  inset: calc(50% - var(--s) / 3);
+  cursor: pointer;
+  --g: linear-gradient(#000 0 0) no-repeat;
+  background: var(--g) 50% / var(--b, 0%) 3px, var(--g) 50%/3px var(--b, 0%);
+  transition: 1.5s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.contentTravels > .gallery > img {
+  width: var(--s);
+  aspect-ratio: 1;
+  object-fit: cover;
+  transform: scale(0.1);
+  filter: brightness(0);
+  pointer-events: none;
+  transform-origin: var(--x) var(--y);
+  transition: 1s calc((var(--i) - 1) * 0.1s);
+}
+.contentTravels > .gallery > img:nth-of-type(1) {
+  --i: 1;
+  --x: 150%;
+  --y: 150%;
+}
+.contentTravels > .gallery > img:nth-of-type(2) {
+  --i: 2;
+  --x: 50%;
+  --y: 150%;
+}
+.contentTravels > .gallery > img:nth-of-type(3) {
+  --i: 3;
+  --x: -50%;
+  --y: 150%;
+}
+.contentTravels > .gallery > img:nth-of-type(4) {
+  --i: 4;
+  --x: 150%;
+  --y: 50%;
+}
+.contentTravels > .gallery > img:nth-of-type(5) {
+  --i: 5;
+}
+.contentTravels > .gallery > img:nth-of-type(6) {
+  --i: 6;
+  --x: -50%;
+  --y: 50%;
+}
+.contentTravels > .gallery > img:nth-of-type(7) {
+  --i: 7;
+  --x: 150%;
+  --y: -50%;
+}
+.contentTravels > .gallery > img:nth-of-type(8) {
+  --i: 8;
+  --x: 50%;
+  --y: -50%;
+}
+.contentTravels > .gallery > img:nth-of-type(9) {
+  --i: 9;
+  --x: -50%;
+  --y: -50%;
+}
+
+.contentTravels > .gallery > input:checked ~ img {
+  transform: scale(1);
+  filter: brightness(1);
+  pointer-events: initial;
+}
+.contentTravels > .gallery > input:checked {
+  transform: translateY(calc(1.75 * var(--s))) scale(0.5) rotate(45deg);
+  --b: 70%;
+}
+
+/* FAQs page */
+.contentFAQs {
+  margin: 0 auto;
+  width: 70%;
+  margin-bottom: 50px;
+  padding: 5%;
+}
+.contentFAQs .container {
+  margin: 0 auto;
+  padding: 4rem;
+  width: 100%;
+}
+.contentFAQs .container h2 {
+  font-size: 36px;
+  text-align: center;
+}
+
+.contentFAQs .accordion {
+  .accordion-item {
+    border-bottom: 1px solid #d3d3d3;
+  }
+
+  button[aria-expanded="true"] {
+    border-bottom: 1px solid #023047;
+  }
+
+  button {
+    position: relative;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 1em 0;
+    color: #595959;
+    font-size: 1.15rem;
+    font-weight: 400;
+    border: none;
+    background: none;
+    outline: none;
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      color: #023047;
+
+      &::after {
+        cursor: pointer;
+        color: #023047;
+        border: 1px solid #023047;
+      }
+    }
+
+    .accordion-title {
+      font-size: 20px;
+      padding: 1em 1.5em 1em 0;
+    }
+
+    .icon {
+      display: inline-block;
+      position: absolute;
+      top: 18px;
+      right: 0;
+      width: 22px;
+      height: 22px;
+      border: 1px solid;
+      border-radius: 22px;
+
+      &::before {
+        display: block;
+        position: absolute;
+        content: "";
+        top: 9px;
+        left: 5px;
+        width: 10px;
+        height: 2px;
+        background: currentColor;
+      }
+
+      &::after {
+        display: block;
+        position: absolute;
+        content: "";
+        top: 5px;
+        left: 9px;
+        width: 2px;
+        height: 10px;
+        background: currentColor;
+      }
+    }
+  }
+
+  button[aria-expanded="true"] {
+    color: #023047;
+    .icon {
+      &::after {
+        width: 0;
+      }
+    }
+
+    + .accordion-content {
+      opacity: 1;
+      max-height: 9em;
+      transition: all 200ms linear;
+      will-change: opacity, max-height;
+    }
+  }
+
+  .accordion-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 200ms linear, max-height 200ms linear;
+    will-change: opacity, max-height;
+
+    p {
+      font-size: 16px;
+      font-weight: 300;
+      margin: 1em 0;
+    }
+  }
+}
+
+/* event page */
+.contentEvent {
+  margin: 0 auto;
+  width: 70%;
+  margin-bottom: 50px;
+  padding: 5%;
+}
+.contentEvent h1 {
+  font-size: 36px;
+  text-align: center;
+}
+
+.contentEvent .accordion {
+  max-width: 990px;
+  background: rgba(0, 0, 0, 0.1);
+  height: 300px;
+  margin: 20px auto;
+  display: flex;
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.47);
+  flex-direction: row;
+  cursor: pointer;
+  margin-bottom: 100px;
+}
+.contentEvent .box {
+  position: relative;
+  height: 100%;
+  flex: 1;
+  background-position: left;
+  background-size: cover;
+  transition: 0.7s;
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.47);
+}
+.contentEvent .box:hover {
+  flex: 7;
+  height: 400px;
+}
+.contentEvent .a1 {
+  background-image: url("../img/bg1.jpg");
+}
+.contentEvent .a2 {
+  background-image: url("../img/bg2.jpeg");
+}
+.contentEvent .a3 {
+  background-image: url("../img/bg3.jpg");
+}
+.contentEvent .a4 {
+  background-image: url("../img/bg4.jpg");
+}
+.contentEvent .a5 {
+  background-image: url("../img/bg5.jpeg");
+  color: #ffffff;
+}
+.contentEvent p {
+  font-weight: normal;
+}
+.contentEvent .text {
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  padding: 10px;
+}
+.contentEvent .box:hover .text {
+  opacity: 1;
+}
+.contentEvent h1 {
+  width: 250px;
+  text-align: center;
+  margin: 100px auto 20px auto;
 }
